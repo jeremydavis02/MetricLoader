@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="maven-antrun-" default="main"  >
+<target name="main">
+  <mkdir dir="/Users/jeremyda/Documents/GitHub/MetricLoader/target/MetricLoader"/>
+  <copy todir="/Users/jeremyda/Documents/GitHub/MetricLoader/target/MetricLoader">
+    <fileset includes="monitor.xml" dir="src/main/resources/conf"/>
+    <fileset includes="config.yml" dir="src/main/resources/conf"/>
+    <fileset includes="test.csv" dir="src/main/resources"/>
+    <fileset includes="LICENSE.txt" dir="/Users/jeremyda/Documents/GitHub/MetricLoader"/>
+    <fileset includes="NOTICE.txt" dir="/Users/jeremyda/Documents/GitHub/MetricLoader"/>
+    <fileset includes="APMDashboard.json" dir="src/main/resources/conf"/>
+    <fileset includes="SIMDashboard.json" dir="src/main/resources/conf"/>
+  </copy>
+  <copy todir="/Users/jeremyda/Documents/GitHub/MetricLoader/target/MetricLoader">
+    <fileset includes="metric-load-gen-extension.jar" dir="/Users/jeremyda/Documents/GitHub/MetricLoader/target"/>
+  </copy>
+  <zip destfile="/Users/jeremyda/Documents/GitHub/MetricLoader/target/MetricLoader-1.0.zip">
+    <zipfileset prefix="MetricLoader/" filemode="755" dir="/Users/jeremyda/Documents/GitHub/MetricLoader/target/MetricLoader"/>
+  </zip>
+  <delete dir="/Users/jeremyda/Documents/GitHub/MetricLoader/target/MetricLoader"/>
+</target>
+</project>

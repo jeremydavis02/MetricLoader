@@ -1,0 +1,29 @@
+<!--
+  ~ Copyright 2020. AppDynamics LLC and its affiliates.
+  ~ All Rights Reserved.
+  ~ This is unpublished proprietary source code of AppDynamics LLC and its affiliates.
+  ~ The copyright notice above does not evidence any actual or intended publication of such source code.
+  ~
+  -->
+
+<monitor>
+    <name>MetricLoader</name>
+    <type>managed</type>
+    <description>Metric Loader Extension</description>
+    <monitor-run-task>
+        <execution-style>periodic</execution-style>
+        <execution-frequency-in-seconds>60</execution-frequency-in-seconds>
+        <name>Metric Loader Extension Run Task</name>
+        <display-name>Metric Loader Extension Task</display-name>
+        <description>Metric Loader Extension Task</description>
+        <type>java</type>
+        <execution-timeout-in-secs>60</execution-timeout-in-secs>
+        <task-arguments>
+            <argument name="config-file" is-required="true" default-value="monitors/MetricLoader/config.yml" />
+        </task-arguments>
+        <java-task>
+            <classpath>metric-load-gen-extension.jar</classpath>
+            <impl-class>com.appdynamics.extensions.metricloader.MetricLoader</impl-class>
+        </java-task>
+    </monitor-run-task>
+</monitor>
